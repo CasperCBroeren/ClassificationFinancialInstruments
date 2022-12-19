@@ -9,16 +9,16 @@ namespace ClassificationFinancialInstruments.Tests
         [InlineData("UBUBIAA")]
         public void NotValidAtAll(string value)
         {
-            var code = ClassificationFinancialInstrument.Parse(value);
+            var canParse = ClassificationFinancialInstrument.TryParse(value, out _);
 
-            Assert.Null(code);
+            Assert.False(canParse);
         }
 
         [Theory]
         [InlineData("ESVTFB")]
         public void Valid(string value)
         {
-            var code = ClassificationFinancialInstrument.Parse(value);
+            var canParse = ClassificationFinancialInstrument.TryParse(value, out var code);
 
             Assert.NotNull(code);
             Assert.Equal(value, code.Value);

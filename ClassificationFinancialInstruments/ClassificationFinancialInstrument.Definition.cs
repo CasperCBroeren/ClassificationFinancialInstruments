@@ -1,38 +1,41 @@
 ﻿namespace ClassificationFinancialInstruments
 {
+    /// <summary>
+    /// https://en.wikipedia.org/wiki/ISO_10962
+    /// </summary>
     public partial class ClassificationFinancialInstrument
     {
         private static readonly Classification[] votingRights = new Classification[]
-{
+        {
                 new Classification('V', "Voting"),
                 new Classification('N', "Non-Voting"),
                 new Classification('R', "Restricted"),
                 new Classification('E', "Enhanced voting")
-};
+        };
 
         private static readonly Classification[] ownership = new Classification[]
-    {
+        {
                 new Classification('T', "Restrictions"),
                 new Classification('U', "Free"),
-    };
+        };
 
         private static readonly Classification[] paymentStatus = new Classification[]
-{
+        {
                 new Classification('F', "Fully Paid"),
                 new Classification('O', "Nil Paid"),
                 new Classification('P', "Partly Paid"),
-};
+        };
 
         private static readonly Classification[] form = new Classification[]
-{
+        {
                 new Classification('B', "Bearer"),
                 new Classification('R', "Registered"),
                 new Classification('N', "Bearer/Registered"),
                 new Classification('M', "Others (Misc.)"),
-};
+        };
 
         private static readonly Classification[] redemption = new Classification[]
-{
+        {
                 new Classification('R', "Redeemable"),
                 new Classification('E', "Extendible"),
                 new Classification('T', "Redeemable / Extendible"),
@@ -40,7 +43,7 @@
                 new Classification('A', "Redeemable / Exchangeable / Extendible"),
                 new Classification('C', "Redeemable/Exchangeable"),
                 new Classification('N', "Perpetual"),
-};
+        };
 
         private static readonly Classification[] income = new Classification[]
         {
@@ -54,6 +57,87 @@
                 new Classification('D', "Dividends"),
         };
 
+        private static readonly Classification[] instrumentDependency = new Classification[]
+       {
+                new Classification('S', "Common/Ordinary Shares"),
+                new Classification('P', "Preferred/Preference Shares"),
+                new Classification('C', "Common/Ordinary Convertible Shares"),
+                new Classification('F', "Preferred/Preference Convertible Shares"),
+                new Classification('L', "Limited Partnership Units"),
+                new Classification('M', "Others (Misc.)")
+       };
+
+
+        private static readonly Classification[] redemptionUnderlying = new Classification[]
+       {
+                new Classification('R', "Redeemable"),
+                new Classification('N', "Perpetual"),
+                new Classification('B', "Convertible"),
+                new Classification('D', "Convertible/Redeemable"),                
+                new Classification('X', "Not Appl./Undefined")
+       };
+
+        private static readonly Classification[] type = new Classification[]
+        {
+                new Classification('A', "Tracker Certificate"),
+                new Classification('B', "Outperforming Certificate"),
+                new Classification('C', "Bonus Certificate"),
+                new Classification('D', "Outperformance Bonus Certificate"),
+                new Classification('E', "Twin-Win-Certificate"),
+                new Classification('M', "Others (Misc.)")
+        };
+
+        private static readonly Classification[] distribution = new Classification[]
+        {
+                new Classification('D', "Dividend Payments"),
+                new Classification('Y', "No Payments"),
+                new Classification('M', "Others (Misc.)")
+        };
+
+        private static readonly Classification[] repayment = new Classification[]
+        {
+                new Classification('F', "Cash Repayment"),
+                new Classification('V', "Physical Repayment"),
+                new Classification('E', "Elect at Settlement"),
+                new Classification('M', "Others (Misc.)")
+        };
+
+        private static readonly Classification[] underlyingAsset = new Classification[]
+{
+                new Classification('B', "Baskets"),
+                new Classification('S', "Equities"),
+                new Classification('D', "Debt Instruments"),
+                new Classification('G', "Derivatives"),
+                   new Classification('T', "Commodities"),
+                new Classification('C', "Currencies"),
+                new Classification('I', "Indices"),
+                new Classification('N', "Interest rates"),
+                new Classification('M', "Others (Misc.)")
+};
+
+        private static readonly Classification[] closedOpenEnd = new Classification[]
+        {
+                new Classification('C', "Closed-end"),
+                new Classification('O', "Open-end"),
+        };
+        private static readonly Classification[] distributionPolicy = new Classification[]
+{
+                new Classification('I', "Income funds"),
+                new Classification('G', "Growth funds"),
+                new Classification('M', "Mixed funds")
+};
+
+
+        private static readonly Classification[] assets = new Classification[]
+{
+                new Classification('R', "Real estate"),
+                new Classification('S', "Securities"),
+                new Classification('M', "Mixed-general"),
+                new Classification('C', "Commodities"),
+                new Classification('D', "Derivatives")
+};
+
+
         private static readonly Classification[] Undefiend = new Classification[]
         {
                 new Classification('X', "Not Appl./Undefined"),
@@ -63,15 +147,15 @@
                {
                 new ClassificationGroup('S', "Shares i.e. Common / Ordinary", votingRights, ownership, paymentStatus, form),
                 new ClassificationGroup('P', "Preferred shares", votingRights, redemption, income, form),
-                new ClassificationGroup('C', "Convertible shares",Undefiend,Undefiend,Undefiend,Undefiend),
-                new ClassificationGroup('F', "Preferred convertible shares",Undefiend,Undefiend,Undefiend,Undefiend),
-                new ClassificationGroup('L', "Limited partnership units",Undefiend,Undefiend,Undefiend,Undefiend),
-                new ClassificationGroup('D', "Depository receipts on equities",Undefiend,Undefiend,Undefiend,Undefiend),
-                new ClassificationGroup('Y', "Structured instruments (participation)",Undefiend,Undefiend,Undefiend,Undefiend),
-                new ClassificationGroup('P', "Preference shares",Undefiend,Undefiend,Undefiend,Undefiend),
-                new ClassificationGroup('V', "Preference convertibles shares",Undefiend,Undefiend,Undefiend,Undefiend),
-                new ClassificationGroup('U', "Units (from Unit trusts, Mutual funds, OPCVM or OICVM)",Undefiend,Undefiend,Undefiend,Undefiend),
-                new ClassificationGroup('M', "Others (Misc.)",Undefiend,Undefiend,Undefiend,Undefiend),
+                new ClassificationGroup('C', "Convertible shares",votingRights,redemption,income,form),
+                new ClassificationGroup('F', "Preferred convertible shares",votingRights,ownership,paymentStatus,form),
+                new ClassificationGroup('L', "Limited partnership units",votingRights,ownership,paymentStatus,form),
+                new ClassificationGroup('D', "Depository receipts on equities",instrumentDependency,redemptionUnderlying,income,form),
+                new ClassificationGroup('Y', "Structured instruments (participation)",type,distribution,repayment,underlyingAsset),
+                new ClassificationGroup('P', "Preference shares",votingRights,redemption,income, form),
+                new ClassificationGroup('V', "Preference convertibles shares",votingRights,redemption,income, form),
+                new ClassificationGroup('U', "Units (from Unit trusts, Mutual funds, OPCVM or OICVM)",closedOpenEnd,distributionPolicy,assets,form),
+                new ClassificationGroup('M', "Others (Misc.)",Undefiend,Undefiend,Undefiend,form),
                };
 
         private static readonly ClassificationGroup[] groupDebt = new ClassificationGroup[]

@@ -1,5 +1,6 @@
 ﻿namespace ClassificationFinancialInstruments
 {
+
     public partial class ClassificationFinancialInstrument
     {        
         private readonly ClassificationCategory cat;
@@ -26,12 +27,13 @@
             a3.Charachter ,
             a4.Charachter });
 
-        public static ClassificationFinancialInstrument? Parse(string value)
+        public static bool TryParse(string value, out ClassificationFinancialInstrument? result)
         {
+            result = null;
             if (string.IsNullOrEmpty(value)
                 || value.Length != 6)
             {
-                return null;
+                return false;
             }
 
             var cat = category
@@ -40,13 +42,13 @@
 
             if (cat == null)
             {
-                return null;
+                return false;
             }
 
             var grp = cat.Groups.Where(x => x.Charachter == value[1]).FirstOrDefault();
             if (grp == null)
             {
-                return null;
+                return false;
             }
 
             var a1 = grp.Attribute1.Where(x => x.Charachter == value[2]).FirstOrDefault();
@@ -58,10 +60,11 @@
                 a3 == null ||
                 a4 == null)
             {
-                return null;
+                return false;
             }
 
-            return new ClassificationFinancialInstrument(cat, grp, a1, a2, a3, a4);
+            result = new ClassificationFinancialInstrument(cat, grp, a1, a2, a3, a4);
+            return true;
         }
     }
 }
