@@ -16,12 +16,14 @@ namespace ClassificationFinancialInstruments.Tests
 
         [Theory]
         [InlineData("ESVTFB")]
+        [InlineData("esvtfB")]
         public void Valid(string value)
         {
             var canParse = ClassificationFinancialInstrument.TryParse(value, out var code);
 
+            Assert.True(canParse);
             Assert.NotNull(code);
-            Assert.Equal(value, code.Value);
+            Assert.Equal(value, code.Value, true);
         }
     }
 }

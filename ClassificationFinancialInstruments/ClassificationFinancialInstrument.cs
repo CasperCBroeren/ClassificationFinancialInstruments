@@ -36,6 +36,8 @@
                 return false;
             }
 
+            value = value.ToUpperInvariant();
+
             var cat = category
                 .Where(x => x.Charachter == value[0])
                 .FirstOrDefault();
