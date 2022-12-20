@@ -1,7 +1,10 @@
-﻿namespace ClassificationFinancialInstruments
+﻿using System;
+
+namespace ClassificationFinancialInstruments
 {
     /// <summary>
     /// https://en.wikipedia.org/wiki/ISO_10962
+    /// https://www.iotafinance.com/en/Attributes-CFI-Codes-Group-SR.html
     /// </summary>
     public partial class ClassificationFinancialInstrument
     {
@@ -73,7 +76,7 @@
                 new Classification('R', "Redeemable"),
                 new Classification('N', "Perpetual"),
                 new Classification('B', "Convertible"),
-                new Classification('D', "Convertible/Redeemable"),                
+                new Classification('D', "Convertible/Redeemable"),
                 new Classification('X', "Not Appl./Undefined")
        };
 
@@ -123,7 +126,7 @@
         private static readonly Classification[] distributionPolicy = new Classification[]
 {
                 new Classification('I', "Income funds"),
-                new Classification('G', "Growth funds"),
+                new Classification('G', "Growth/Accumulation funds"),
                 new Classification('M', "Mixed funds")
 };
 
@@ -254,9 +257,73 @@
         private static readonly Classification[] typeOthersDebt = new Classification[]
 {
                 new Classification('B', "Bank loan"),
-                new Classification('P', "Promissory Note"),                
+                new Classification('P', "Promissory Note"),
                 new Classification('M', "Others (Misc.)")
 };
+
+        private static readonly Classification[] collectiveAssets = new Classification[]
+{
+                new Classification('R', "Real Estate"),
+                new Classification('B', "Debt Instruments"),
+                new Classification('E', "Equities"),
+                new Classification('V', "Convertible Securities"),
+                new Classification('L', "Mixed"),
+                new Classification('C', "Commodities"),
+                new Classification('D', "Derivatives"),
+                new Classification('F', "Referential Instruments"),
+                new Classification('K', "Credits"),
+                new Classification('M', "Others (Misc.)"),
+};
+        private static readonly Classification[] securityTypeInvestorRestrictions = new Classification[]
+{
+                new Classification('S', "Shares"),
+                new Classification('Q', "Shares for QI"),
+                new Classification('U', "Units"),
+                new Classification('Y', "Units for QI"),
+};
+
+        private static readonly Classification[] investmentStrategy = new Classification[]
+{
+                new Classification('D', "Directional"),
+                new Classification('R', "Relative Value"),
+                new Classification('S', "Security Selection"),
+                new Classification('E', "Event-Driven"),
+                new Classification('A', "Artibrage"),
+                new Classification('N', "Multi-Strategy"),
+                new Classification('L', "Asset-Based Lending"),
+                new Classification('M', "Others (Misc.)"),
+};
+
+        private static readonly Classification[] securityType = new Classification[]
+{
+                new Classification('S', "Shares"),
+                new Classification('U', "Units")
+            };
+
+        private static readonly Classification[] pensionFundStrategy = new Classification[]
+{
+                new Classification('B', "Balanced/Conservative"),
+                new Classification('G', "Growth"),
+                new Classification('L', "Life Style"),
+                new Classification('M', "Others (Misc.)")
+    };
+
+        private static readonly Classification[] pensionFundType = new Classification[]
+{
+                new Classification('R', "Defined Benefit"),
+                new Classification('B', "Defined Contribution"), 
+                new Classification('M', "Others (Misc.)")
+};
+
+        private static readonly Classification[] securityTypeFundOfFund = new Classification[]
+{
+                new Classification('I', "Standard (Vanilla)"),
+                new Classification('H', "Hedge Funds"),
+                new Classification('B', "REIT"),
+                new Classification('E', "EFT"),
+                new Classification('P', "Private Equity Funds"),
+                new Classification('M', "Others (Misc.)")
+    };
 
         private static readonly Classification[] Undefiend = new Classification[]
         {
@@ -280,7 +347,7 @@
 
         private static readonly ClassificationGroup[] groupDebt = new ClassificationGroup[]
                {
-                new ClassificationGroup('B', "Bonds", typeOfInterest, guarantee, reimbursement, form),                
+                new ClassificationGroup('B', "Bonds", typeOfInterest, guarantee, reimbursement, form),
                 new ClassificationGroup('C', "Convertible Bonds",typeOfInterest, guarantee, reimbursement, form),
                 new ClassificationGroup('W', "Bonds with warrants attached", typeOfInterest, guarantee, reimbursement, form),
                 new ClassificationGroup('T', "Medium-term notes", typeOfInterest, guarantee, reimbursement, form),
@@ -297,14 +364,14 @@
 
         private static readonly ClassificationGroup[] groupInvestment = new ClassificationGroup[]
                {
-                new ClassificationGroup('I', "Standard (vanilla)investment funds/mutual funds",Undefiend,Undefiend,Undefiend,Undefiend),
-                new ClassificationGroup('H', "Hedge funds",Undefiend,Undefiend,Undefiend,Undefiend),
-                new ClassificationGroup('B', "Real estate investment trusts (REITs)",Undefiend,Undefiend,Undefiend,Undefiend),
-                new ClassificationGroup('E', "Exchange-traded funds (ETFs)",Undefiend,Undefiend,Undefiend,Undefiend),
-                new ClassificationGroup('S', "Pension funds",Undefiend,Undefiend,Undefiend,Undefiend),
-                new ClassificationGroup('F', "Funds of funds",Undefiend,Undefiend,Undefiend,Undefiend),
-                new ClassificationGroup('P', " Private equity funds",Undefiend,Undefiend,Undefiend,Undefiend),
-                new ClassificationGroup('M', "Others (Misc.)",Undefiend,Undefiend,Undefiend,Undefiend),
+                new ClassificationGroup('I', "Standard (vanilla)investment funds/mutual funds",closedOpenEnd,distributionPolicy, collectiveAssets,securityTypeInvestorRestrictions),
+                new ClassificationGroup('H', "Hedge funds",investmentStrategy,Undefiend,Undefiend,Undefiend),
+                new ClassificationGroup('B', "Real estate investment trusts (REITs)",closedOpenEnd,distributionPolicy,Undefiend,securityTypeInvestorRestrictions),
+                new ClassificationGroup('E', "Exchange-traded funds (ETFs)",closedOpenEnd, distributionPolicy,collectiveAssets,securityType),
+                new ClassificationGroup('S', "Pension funds",closedOpenEnd,pensionFundStrategy,pensionFundType,securityType),
+                new ClassificationGroup('F', "Funds of funds",closedOpenEnd,distributionPolicy,securityTypeFundOfFund,securityTypeInvestorRestrictions),
+                new ClassificationGroup('P', "Private equity funds",closedOpenEnd,distributionPolicy,collectiveAssets,securityTypeInvestorRestrictions),
+                new ClassificationGroup('M', "Others (Misc.)",Undefiend,Undefiend,Undefiend,securityTypeInvestorRestrictions),
 
                };
 
