@@ -1,6 +1,6 @@
 namespace ClassificationFinancialInstruments.Tests
 {
-    public class CFI
+    public class CFI_TryParse
     {
         [Theory]
         [InlineData("")]
