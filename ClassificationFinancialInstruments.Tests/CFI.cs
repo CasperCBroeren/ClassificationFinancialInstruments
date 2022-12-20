@@ -7,7 +7,7 @@ namespace ClassificationFinancialInstruments.Tests
         [InlineData("JAJAJA")]
         [InlineData("ja")]
         [InlineData("UBUBIAA")]
-        public void NotValidAtAll(string value)
+        public void NotValid(string value)
         {
             var canParse = ClassificationFinancialInstrument.TryParse(value, out _);
 
@@ -19,6 +19,9 @@ namespace ClassificationFinancialInstruments.Tests
         [InlineData("esvtfB")]
         [InlineData("DYKOXN")]
         [InlineData("DMPXXM")]
+        [InlineData("CEOGRU")]
+        [InlineData("RDAXXN")]
+        [InlineData("RFDNPB")]
         public void Valid(string value)
         {
             var canParse = ClassificationFinancialInstrument.TryParse(value, out var code);

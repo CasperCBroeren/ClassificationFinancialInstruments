@@ -325,6 +325,62 @@ namespace ClassificationFinancialInstruments
                 new Classification('M', "Others (Misc.)")
     };
 
+        private static readonly Classification[] entitlementAsset = new Classification[]
+{
+                new Classification('S', "Common/Ordinary Shares"),
+                new Classification('P', "Preferred/Preference Shares"),
+                new Classification('C', "Common/Ordinary Convertible Shares"),
+                new Classification('F', "Preferred/Preference Convertible Shares"),
+                new Classification('B', "Bonds"),
+                new Classification('I', "Combined Instruments"),
+                new Classification('M', "Others (Misc.)")
+};
+
+        private static readonly Classification[] warrantType = new Classification[]
+{
+                new Classification('T', "Taditional Warrants"),
+                new Classification('N', "Naked Warrants"),
+                new Classification('C', "Covered Warrants")
+};
+
+        private static readonly Classification[] callPut = new Classification[]
+{
+                new Classification('C', "Call"),
+                new Classification('P', "Put"),
+                new Classification('B', "Call and Put")
+};
+
+        private static readonly Classification[] barrierDependencyType = new Classification[]
+{
+                new Classification('T', "Barrier Underlying Based"),
+                new Classification('N', "Barrier Instrument Based"),
+                new Classification('M', "Others (Misc.)")
+};
+
+        private static readonly Classification[] longShort = new Classification[]
+{
+                new Classification('C', "Long"),
+                new Classification('P', "Short"),
+                new Classification('M', "Others (Misc.)")
+};
+        private static readonly Classification[] exerciseOptionStyle = new Classification[]
+{
+                new Classification('A', "American"),
+                new Classification('E', "European"),
+                new Classification('B', "Bermudan"),
+                new Classification('M', "Others (Misc.)")
+};
+        private static readonly Classification[] depositoryInstrumentDependency = new Classification[]
+{
+                new Classification('A', "Allotment (Bonus) Rights"),
+                new Classification('S', "Subscription Rights"),
+                new Classification('P', "Purchase Rights"),
+                new Classification('W', "Warrants"),
+                new Classification('M', "Others (Misc.)")
+};
+
+        
+
         private static readonly Classification[] Undefiend = new Classification[]
         {
                 new Classification('X', "Not Appl./Undefined"),
@@ -377,12 +433,12 @@ namespace ClassificationFinancialInstruments
 
         private static readonly ClassificationGroup[] groupEntitlement = new ClassificationGroup[]
                {
-                new ClassificationGroup('A', "Allotments (Bonus Rights)",Undefiend,Undefiend,Undefiend,Undefiend),
-                new ClassificationGroup('S', "Subscription Rights",Undefiend,Undefiend,Undefiend,Undefiend),
-                new ClassificationGroup('P', "Purchase Rights",Undefiend,Undefiend,Undefiend,Undefiend),
-                new ClassificationGroup('W', "Warrants",Undefiend,Undefiend,Undefiend,Undefiend),
-                new ClassificationGroup('F', "Mini-future certificates/constant leverage certificates",Undefiend,Undefiend,Undefiend,Undefiend),
-                new ClassificationGroup('D', "Depository receipts on entitlements", Undefiend, Undefiend, Undefiend, Undefiend),
+                new ClassificationGroup('A', "Allotments (Bonus Rights)",Undefiend,Undefiend,Undefiend,form),
+                new ClassificationGroup('S', "Subscription Rights",entitlementAsset,Undefiend,Undefiend,form),
+                new ClassificationGroup('P', "Purchase Rights",entitlementAsset,Undefiend,Undefiend,form),
+                new ClassificationGroup('W', "Warrants",underlyingAssetStructuredProducts, warrantType, callPut, exerciseOptionStyle),
+                new ClassificationGroup('F', "Mini-future certificates/constant leverage certificates",underlyingAssetStructuredProducts,barrierDependencyType, longShort,exerciseOptionStyle),
+                new ClassificationGroup('D', "Depository receipts on entitlements", depositoryInstrumentDependency, Undefiend, Undefiend, form),
                 new ClassificationGroup('M', "Others (Misc.)", Undefiend, Undefiend, Undefiend, Undefiend),
                };
 
