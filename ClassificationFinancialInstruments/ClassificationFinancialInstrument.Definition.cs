@@ -108,7 +108,7 @@
                 new Classification('S', "Equities"),
                 new Classification('D', "Debt Instruments"),
                 new Classification('G', "Derivatives"),
-                   new Classification('T', "Commodities"),
+                new Classification('T', "Commodities"),
                 new Classification('C', "Currencies"),
                 new Classification('I', "Indices"),
                 new Classification('N', "Interest rates"),
@@ -129,14 +129,134 @@
 
 
         private static readonly Classification[] assets = new Classification[]
-{
+        {
                 new Classification('R', "Real estate"),
                 new Classification('S', "Securities"),
                 new Classification('M', "Mixed-general"),
                 new Classification('C', "Commodities"),
                 new Classification('D', "Derivatives")
+        };
+
+        private static readonly Classification[] typeOfInterest = new Classification[]
+        {
+                new Classification('F', "Fixed Rate"),
+                new Classification('Z', "Zero rate/ discounted rate"),
+                new Classification('V', "Variable"),
+                new Classification('C', "Cash payment"),
+                new Classification('K', "Payment in kind")
+        };
+
+        private static readonly Classification[] guarantee = new Classification[]
+        {
+                new Classification('T', "Government / State Guarantee"),
+                new Classification('G', "Joint Guarantee"),
+                new Classification('S', "Secured"),
+                new Classification('U', "Unsecured / Unguaranteed"),
+                new Classification('P', "Negative Pledge"),
+                new Classification('N', "Senior"),
+                new Classification('O', "Senior Subordinated"),
+                new Classification('Q', "Junior"),
+                new Classification('J', "Junior Subordinated"),
+                new Classification('C', "Supranational")
+        };
+
+        private static readonly Classification[] reimbursement = new Classification[]
+{
+                new Classification('F', "Fixed Maturity"),
+                new Classification('G', "Fixed Maturity with Call Feature"),
+                new Classification('C', "Fixed Maturity with Put Feature"),
+                new Classification('D', "Fixed Maturity with Put and Call"),
+                new Classification('A', "Amortization Plan"),
+                new Classification('B', "Amortization Plan with Call Feature"),
+                new Classification('T', "Amortization Plan with Put Feature"),
+                new Classification('L', "Amortization Plan with Put and Call"),
+                new Classification('P', "Perpetual"),
+                new Classification('Q', "Perpetual with Call Feature"),
+                new Classification('R', "Perpetual with Put Feature"),
+                new Classification('E', "Extendible")
 };
 
+        private static readonly Classification[] typeStructeredProductsProtected = new Classification[]
+{
+                new Classification('A', "Capital Protection Certificate with Participation"),
+                new Classification('B', "Capital Protection Convertible Certificate"),
+                new Classification('C', "Barrier Capital Protection Certificate"),
+                new Classification('D', "Capital Protection Certificate with Coupons"),
+                new Classification('M', "Others (Misc.)")
+};
+
+        private static readonly Classification[] typeStructeredProductsUnprotected = new Classification[]
+{
+                new Classification('A', "Discount Certificate"),
+                new Classification('B', "Barrier Discount Certificate"),
+                new Classification('C', "Reverse Convertible"),
+                new Classification('D', "Barrier Reverse Convertible"),
+                new Classification('E', "Express Certificate"),
+                new Classification('M', "Others (Misc.)")
+};
+        private static readonly Classification[] distributionStructuredProducts = new Classification[]
+{
+                new Classification('F', "Fixed Interest Payments"),
+                new Classification('D', "Dividend Payments"),
+                new Classification('V', "Variable Interest Payments"),
+                new Classification('Y', "No Payments"),
+                new Classification('M', "Others (Misc.)")
+};
+        private static readonly Classification[] repaymentProtected = new Classification[]
+{
+                new Classification('F', "Fixed Cash Repayment (Only Protected Capital Level)"),
+                new Classification('V', "Variable Cash Repayment"),
+                new Classification('M', "Others (Misc.)")
+};
+
+        private static readonly Classification[] repaymentUnprotected = new Classification[]
+{
+                new Classification('R', "Repayment in Cash"),
+                new Classification('S', "Repayment in Assets"),
+                new Classification('C', "Repayment in Assets and Cash"),
+                new Classification('T', "Repayment in Assets or Cash"),
+                new Classification('M', "Others (Misc.)")
+};
+
+        private static readonly Classification[] underlyingAssetStructuredProducts = new Classification[]
+{
+                new Classification('B', "Baskets"),
+                new Classification('S', "Equities"),
+                new Classification('D', "Debt Instruments / Interest Rates"),
+                new Classification('T', "Commodities"),
+                new Classification('C', "Currencies"),
+                new Classification('I', "Indices"),
+                new Classification('M', "Others (Misc.)")
+};
+
+        private static readonly Classification[] typeOfInterestGAN = new Classification[]
+{
+                new Classification('F', "Fixed rate"),
+                new Classification('Z', "Zero rate / discounted rate"),
+                new Classification('V', "Variable"),
+};
+
+        private static readonly Classification[] typeOfInterestCashPayment = new Classification[]
+{
+                new Classification('F', "Fixed rate"),
+                new Classification('Z', "Zero rate / discounted rate"),
+                new Classification('V', "Variable"),
+                new Classification('V', "Cash Payment"),
+};
+
+        private static readonly Classification[] typeOfInterestMoneyMarket = new Classification[]
+{
+                new Classification('F', "Fixed rate"),
+                new Classification('Z', "Zero rate / discounted rate"),
+                new Classification('V', "Variable"),
+                new Classification('K', "Payment in Kind"),
+};
+        private static readonly Classification[] typeOthersDebt = new Classification[]
+{
+                new Classification('B', "Bank loan"),
+                new Classification('P', "Promissory Note"),                
+                new Classification('M', "Others (Misc.)")
+};
 
         private static readonly Classification[] Undefiend = new Classification[]
         {
@@ -160,19 +280,18 @@
 
         private static readonly ClassificationGroup[] groupDebt = new ClassificationGroup[]
                {
-                new ClassificationGroup('B', "Bonds",Undefiend,Undefiend,Undefiend,Undefiend),
-                new ClassificationGroup('P', "Preferred shares",Undefiend,Undefiend,Undefiend,Undefiend),
-                new ClassificationGroup('C', "Convertible Bonds",Undefiend,Undefiend,Undefiend,Undefiend),
-                new ClassificationGroup('W', "Bonds with warrants attached",Undefiend,Undefiend,Undefiend,Undefiend),
-                new ClassificationGroup('T', "Medium-term notes",Undefiend,Undefiend,Undefiend,Undefiend),
-                new ClassificationGroup('S', "Structured products (with capital protection)",Undefiend,Undefiend,Undefiend,Undefiend),
-                new ClassificationGroup('E', "Structured products (without capital protection)",Undefiend,Undefiend,Undefiend,Undefiend),
-                new ClassificationGroup('G', "Mortgage-backed securities (MBS)",Undefiend,Undefiend,Undefiend,Undefiend),
-                new ClassificationGroup('A', " Asset backed securities (ABS)",Undefiend,Undefiend,Undefiend,Undefiend),
-                new ClassificationGroup('N', "Municipal bonds",Undefiend,Undefiend,Undefiend,Undefiend),
-                new ClassificationGroup('D', "Depository receipts on debt instruments",Undefiend,Undefiend,Undefiend,Undefiend),
-                new ClassificationGroup('Y', "Money market instruments",Undefiend,Undefiend,Undefiend,Undefiend),
-                new ClassificationGroup('M', "Others (Misc.)",Undefiend,Undefiend,Undefiend,Undefiend),
+                new ClassificationGroup('B', "Bonds", typeOfInterest, guarantee, reimbursement, form),                
+                new ClassificationGroup('C', "Convertible Bonds",typeOfInterest, guarantee, reimbursement, form),
+                new ClassificationGroup('W', "Bonds with warrants attached", typeOfInterest, guarantee, reimbursement, form),
+                new ClassificationGroup('T', "Medium-term notes", typeOfInterest, guarantee, reimbursement, form),
+                new ClassificationGroup('S', "Structured products (with capital protection)",typeStructeredProductsProtected,distributionStructuredProducts,repaymentProtected,underlyingAssetStructuredProducts),
+                new ClassificationGroup('E', "Structured products (without capital protection)",typeStructeredProductsUnprotected,distributionStructuredProducts,repaymentUnprotected,underlyingAssetStructuredProducts),
+                new ClassificationGroup('G', "Mortgage-backed securities (MBS)",typeOfInterestGAN,guarantee,reimbursement,form),
+                new ClassificationGroup('A', "Asset backed securities (ABS)",typeOfInterestGAN,guarantee,reimbursement,form),
+                new ClassificationGroup('N', "Municipal bonds",typeOfInterestGAN,guarantee,reimbursement,form),
+                new ClassificationGroup('D', "Depository receipts on debt instruments",instrumentDependency,typeOfInterestCashPayment,guarantee,reimbursement),
+                new ClassificationGroup('Y', "Money market instruments",typeOfInterestMoneyMarket,guarantee,Undefiend,form),
+                new ClassificationGroup('M', "Others (Misc.)",typeOthersDebt,Undefiend,Undefiend,form),
 
                };
 

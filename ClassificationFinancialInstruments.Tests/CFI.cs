@@ -17,6 +17,8 @@ namespace ClassificationFinancialInstruments.Tests
         [Theory]
         [InlineData("ESVTFB")]
         [InlineData("esvtfB")]
+        [InlineData("DYKOXN")]
+        [InlineData("DMPXXM")]
         public void Valid(string value)
         {
             var canParse = ClassificationFinancialInstrument.TryParse(value, out var code);
