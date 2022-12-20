@@ -27,12 +27,7 @@
             a3.Charachter ,
             a4.Charachter });
 
-        public string Explanation => $"An instrument classified as {string.Join(", ", new string[] {cat.Explanation,
-            grp.Explanation,
-            a1.Explanation ,
-            a2.Explanation ,
-            a3.Explanation ,
-            a4.Explanation })}";
+        public string Explanation => $"An instrument classified as category {cat.Explanation}, group {grp.Explanation} and attributes[{a1.Explanation}|{a2.Explanation}|{a3.Explanation}|{a4.Explanation}]";
 
         public static bool TryParse(string value, out ClassificationFinancialInstrument? result)
         {

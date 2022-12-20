@@ -1,5 +1,3 @@
-using Newtonsoft.Json.Linq;
-
 namespace ClassificationFinancialInstruments.Tests
 {
     public class CFI_Validate
@@ -117,7 +115,7 @@ namespace ClassificationFinancialInstruments.Tests
 
             Assert.True(result.Success);
             Assert.NotNull(result.Data);
-            Assert.Equal("An instrument classified as Equities, Shares i.e. Common / Ordinary, Voting, Restrictions, Fully Paid, Bearer", result.Data.Explanation, true);
+            Assert.Equal("An instrument classified as category Equities, group Shares i.e. Common / Ordinary and attributes[Voting|Restrictions|Fully Paid|Bearer]", result.Data.Explanation, true);
         }
     }
 }
