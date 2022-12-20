@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ClassificationFinancialInstruments
+﻿namespace ClassificationFinancialInstruments
 {
     /// <summary>
     /// https://en.wikipedia.org/wiki/ISO_10962
@@ -446,11 +444,11 @@ namespace ClassificationFinancialInstruments
                {
                 new ClassificationGroup('C', "Call Options", Undefiend, Undefiend, Undefiend, Undefiend),
                 new ClassificationGroup('P', "Put Options", Undefiend, Undefiend, Undefiend, Undefiend),
-                new ClassificationGroup('M', "Others (Misc.)", Undefiend, Undefiend, Undefiend, Undefiend)  ,
+                new ClassificationGroup('M', "Others (Misc.)", Undefiend, Undefiend, Undefiend, Undefiend)
                };
 
         private static readonly ClassificationGroup[] groupFutures = new ClassificationGroup[]
-              {
+        {
                 new ClassificationGroup('F', "Financial futures",Undefiend,Undefiend,Undefiend,Undefiend),
                 new ClassificationGroup('C', "Commodities futures", Undefiend, Undefiend, Undefiend, Undefiend),
               };
@@ -502,15 +500,14 @@ namespace ClassificationFinancialInstruments
         };
 
         private static readonly ClassificationGroup[] groupFinancing = new ClassificationGroup[]
-{
+        {
                 new ClassificationGroup('R', "Loan Lease",Undefiend,Undefiend,Undefiend,Undefiend),
                 new ClassificationGroup('R', "Repurchase agreements",Undefiend,Undefiend,Undefiend,Undefiend),
                 new ClassificationGroup('S', "Securities Lending",Undefiend,Undefiend,Undefiend,Undefiend),
-};
+        };
 
         private static readonly ClassificationGroup[] groupInstruments = new ClassificationGroup[]
-{
-
+        {
                 new ClassificationGroup('C', "Currencies",Undefiend,Undefiend,Undefiend,Undefiend),
                 new ClassificationGroup('T', "Commodities",Undefiend,Undefiend,Undefiend,Undefiend),
                 new ClassificationGroup('R', "Interest rates",Undefiend,Undefiend,Undefiend,Undefiend),
@@ -518,16 +515,14 @@ namespace ClassificationFinancialInstruments
                 new ClassificationGroup('B', "Baskets",Undefiend,Undefiend,Undefiend,Undefiend),
                 new ClassificationGroup('D', "Stock dividends",Undefiend,Undefiend,Undefiend,Undefiend),
                 new ClassificationGroup('M', "Others (Misc.)",Undefiend,Undefiend,Undefiend,Undefiend),
-};
+        };
 
         private static readonly ClassificationGroup[] groupMisc = new ClassificationGroup[]
-{
+        {
 
                 new ClassificationGroup('C', "Combined instruments",Undefiend,Undefiend,Undefiend,Undefiend),
                 new ClassificationGroup('M', "Others (Misc.)",Undefiend,Undefiend,Undefiend,Undefiend),
-};
-
-
+        };
 
         private static readonly ClassificationCategory[] category = new ClassificationCategory[]
            {

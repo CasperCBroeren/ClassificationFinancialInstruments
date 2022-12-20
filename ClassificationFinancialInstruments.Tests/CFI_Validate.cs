@@ -1,3 +1,5 @@
+using Newtonsoft.Json.Linq;
+
 namespace ClassificationFinancialInstruments.Tests
 {
     public class CFI_Validate
@@ -83,6 +85,29 @@ namespace ClassificationFinancialInstruments.Tests
             Assert.True(result.Success);
             Assert.NotNull(result.Data);
             Assert.Equal(value, result.Data.Value, true);
+        }
+
+        [Theory]
+        [InlineData("ESVTFB")]
+        [InlineData("esvtfB")]
+        [InlineData("DYKOXN")]
+        [InlineData("DMPXXM")]
+        [InlineData("CEOGRU")]
+        [InlineData("RDAXXN")]
+        [InlineData("RFDNPB")]
+        public void ValidWithApply(string value)
+        {
+            var result = ClassificationFinancialInstrument.Validate(value);
+
+            Assert.Equal(value, result.Apply((x) => x.Value), true);
+        }
+
+        [Fact]
+        public void Attribute4ErrorWithApply()
+        {
+            var result = ClassificationFinancialInstrument.Validate("ESVTFQ");
+
+            Assert.Equal("Sixt character should be a attribute [B,R,N,M]", result.Apply((x) => x.Value, (x) => x.Message));
         }
 
         [Fact]
