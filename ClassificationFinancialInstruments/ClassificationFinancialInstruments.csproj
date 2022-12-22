@@ -13,6 +13,8 @@
     <PackageTags>finance; cfi</PackageTags>
     <Description>Classification Fincancial Instruments code or CFI parsing with propper validation option and error with communicative error</Description>
     <PackageIcon>cfi.png</PackageIcon>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Authors>Casper C Broeren</Authors>
   </PropertyGroup>
 
   <ItemGroup>
