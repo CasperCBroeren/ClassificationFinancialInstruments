@@ -684,6 +684,24 @@ namespace ClassificationFinancialInstruments
             new('M', "Others (Misc.)")
         };
 
+        private static readonly Classification[] deliverySpotFx =
+{
+            new('P', "Physical")
+        };
+
+        private static readonly Classification[] underlyingAssetSpotCommodities =
+{
+
+            new('A', "Agriculture"),
+            new('J', "Energy"),
+            new('K', "Metals"),
+            new('N', "Environmental"),
+            new('P', "Polypropylene Products"),
+            new('S', "Fertilizer"),
+            new('T', "Paper"), 
+            new('M', "Others (Misc.)")
+        };
+
         private static readonly Classification[] undefiend =
         {
             new('X', "Not Appl./Undefined")
@@ -833,10 +851,12 @@ namespace ClassificationFinancialInstruments
                 underlyingAssetNonListedMisc, optionStyleNonListed, valuationNonListed, deliveryNonListed)
         };
 
-        private static readonly ClassificationGroup[] groupSpots =
+        private static readonly ClassificationGroup[] groupSpot =
         {
-            new('F', "Foreign exchange (FX)", undefiend, undefiend, undefiend, undefiend),
-            new('T', "Commodities", undefiend, undefiend, undefiend, undefiend)
+            new('F', "Foreign exchange (FX)", 
+                undefiend, undefiend, undefiend, deliverySpotFx),
+            new('T', "Commodities", 
+                underlyingAssetSpotCommodities, undefiend, undefiend, undefiend)
         };
 
         private static readonly ClassificationGroup[] groupForwards =
@@ -893,7 +913,7 @@ namespace ClassificationFinancialInstruments
             new('F', "Futures", groupFutures),
             new('S', "Swaps", groupSwaps),
             new('H', "Non-listed and complex listed options", groupNonListed),
-            new('I', "Spots", groupSpots),
+            new('I', "Spots", groupSpot),
             new('J', "Forwards", groupForwards),
             new('K', "Strategies", groupStrategies),
             new('L', "Financing", groupFinancing),
