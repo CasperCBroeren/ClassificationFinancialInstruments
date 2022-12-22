@@ -22,6 +22,10 @@ namespace ClassificationFinancialInstruments.Tests
         [InlineData("CEOGRU")]
         [InlineData("RDAXXN")]
         [InlineData("RFDNPB")]
+        [InlineData("MMNXXX")]
+        [InlineData("MMRXXX")]
+        [InlineData("MMPXXX")]
+        [InlineData("MMMXXX")]
         public void Valid(string value)
         {
             var canParse = ClassificationFinancialInstrument.TryParse(value, out var code);
