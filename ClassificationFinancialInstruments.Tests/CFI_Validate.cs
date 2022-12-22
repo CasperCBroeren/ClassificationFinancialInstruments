@@ -93,6 +93,7 @@ namespace ClassificationFinancialInstruments.Tests
         [InlineData("CEOGRU")]
         [InlineData("RDAXXN")]
         [InlineData("RFDNPB")]
+        [InlineData("HMPAAP")]
         public void ValidWithApply(string value)
         {
             var result = ClassificationFinancialInstrument.Validate(value);
