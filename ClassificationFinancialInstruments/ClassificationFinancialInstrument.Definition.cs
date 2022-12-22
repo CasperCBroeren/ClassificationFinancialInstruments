@@ -924,8 +924,31 @@ namespace ClassificationFinancialInstruments
             new('P', "Preferred/Preference Shares"),
             new('C', "Common/Ordinary Convertible Shares"),
             new('F', "Preferred/Preference Convertible Shares"),
-            new('L', "Limited Partnership Units\r\n"),
-            new('K', "Collective Investment Vehicles\r\n"),
+            new('L', "Limited Partnership Units"),
+            new('K', "Collective Investment Vehicles"),
+            new('M', "Others (Misc.)")
+        };
+
+        private static readonly Classification[] components =
+{
+            new('S', "Combination of Shares"),
+            new('B', "Combination of Bonds"),
+            new('H', "Share and Bond"),
+            new('A', "Share and Warrant"),
+            new('W', "Warrant and Warrant"),
+            new('U', "Fund Unit and Other Components"),
+            new('M', "Others (Misc.)")
+        };
+
+        private static readonly Classification[] furtherGrouping =
+{
+            new('R', "Real Estate Deeds"),
+            new('I', "Insurance Policies"),
+            new('E', "Escrow Receipts"),
+            new('T', "Trade Finance Instruments"),
+            new('N', "Carbon Credit"),
+            new('P', "Precious Metal Receipts"),
+            new('S', "Other OTC Derivative Products\r\n"),
             new('M', "Others (Misc.)")
         };
 
@@ -1149,8 +1172,10 @@ namespace ClassificationFinancialInstruments
 
         private static readonly ClassificationGroup[] groupMisc =
         {
-            new('C', "Combined instruments", undefiend, undefiend, undefiend, undefiend),
-            new('M', "Others (Misc.)", undefiend, undefiend, undefiend, undefiend)
+            new('C', "Combined instruments", 
+                components, ownership, undefiend, form),
+            new('M', "Others (Misc.)", 
+                furtherGrouping, undefiend, undefiend, undefiend)
         };
 
         private static readonly ClassificationCategory[] categories =
