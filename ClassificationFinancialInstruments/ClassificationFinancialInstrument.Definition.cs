@@ -865,7 +865,7 @@ namespace ClassificationFinancialInstruments
             new('N', "Nominal"),
             new('V', "Variable"),
             new('F', "Fixed"),
-            new('R', "Real")
+            new('R', "Real"),
             new('M', "Others (Misc.)")
         };
 
@@ -876,7 +876,7 @@ namespace ClassificationFinancialInstruments
             new('N', "Monthly"),
             new('Q', "Quarterly"),
             new('S', "Semi-Annually"),
-            new('A', "Annually), 
+            new('A', "Annually"), 
               new('M', "Others (Misc.)")
         };
 
@@ -887,8 +887,8 @@ namespace ClassificationFinancialInstruments
             new('F', "Collective Investment Vehicles"),
             new('R', "Real Estate"),
             new('T', "Commodities"),
-            new('C', "Currencies), 
-              new('M', "Others (Misc.)")
+            new('C', "Currencies"), 
+            new('M', "Others (Misc.)")
         };
 
         private static readonly Classification[] weightingTypes =
@@ -914,7 +914,7 @@ namespace ClassificationFinancialInstruments
             new('F', "Collective Investment Vehicles"),
             new('I', "Indices"),
             new('T', "Commodities"),
-            new('C', "Currencies), 
+            new('C', "Currencies"), 
               new('M', "Others (Misc.)")
         };
 
@@ -948,7 +948,7 @@ namespace ClassificationFinancialInstruments
             new('T', "Trade Finance Instruments"),
             new('N', "Carbon Credit"),
             new('P', "Precious Metal Receipts"),
-            new('S', "Other OTC Derivative Products\r\n"),
+            new('S', "Other OTC Derivative Products"),
             new('M', "Others (Misc.)")
         };
 
