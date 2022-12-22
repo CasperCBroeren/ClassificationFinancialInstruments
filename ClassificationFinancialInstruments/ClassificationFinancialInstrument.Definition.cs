@@ -840,6 +840,96 @@ namespace ClassificationFinancialInstruments
 
         };
 
+        private static readonly Classification[] typeInstrumentCurrencies =
+{
+            new('N', "National Currency"),
+            new('L', "Legacy Currency"),
+            new('C', "Bullion Coins"),
+            new('M', "Others (Misc.)")
+        };
+
+        private static readonly Classification[] underlyingAssetInstrumentCommodities =
+{
+            new('E', "Extraction Resources"),
+            new('A', "Agriculture"),
+            new('I', "Industrial Products"),
+            new('S', "Services"),
+            new('N', "Environmental"),
+            new('P', "Polypropylene Products"),
+            new('H', "Generated Resources"),
+              new('M', "Others (Misc.)")
+        };
+
+        private static readonly Classification[] typeOfInterestRates =
+{
+            new('N', "Nominal"),
+            new('V', "Variable"),
+            new('F', "Fixed"),
+            new('R', "Real")
+            new('M', "Others (Misc.)")
+        };
+
+        private static readonly Classification[] frequencyOfCalculation =
+{
+            new('D', "Daily"),
+            new('W', "Weekly"),
+            new('N', "Monthly"),
+            new('Q', "Quarterly"),
+            new('S', "Semi-Annually"),
+            new('A', "Annually), 
+              new('M', "Others (Misc.)")
+        };
+
+        private static readonly Classification[] assetClasses =
+{
+            new('E', "Equities"),
+            new('D', "Debt"),
+            new('F', "Collective Investment Vehicles"),
+            new('R', "Real Estate"),
+            new('T', "Commodities"),
+            new('C', "Currencies), 
+              new('M', "Others (Misc.)")
+        };
+
+        private static readonly Classification[] weightingTypes =
+{
+            new ('P', "Price Weighted"),
+            new('C', "Capitalization Weighted"),
+            new('E', "Equal Weighted"),
+            new('F', "Modified Market Capitalization Weighted"),
+              new('M', "Others (Misc.)")
+        };
+
+        private static readonly Classification[] indexReturnType =
+{
+            new ('P', "Price Return"),
+            new('N', "Net Total Return"),
+            new('G', "Gross Total Return"),
+              new('M', "Others (Misc.)")
+        };
+        private static readonly Classification[] compositions =
+{
+            new('E', "Equities"),
+            new('D', "Debt"),
+            new('F', "Collective Investment Vehicles"),
+            new('I', "Indices"),
+            new('T', "Commodities"),
+            new('C', "Currencies), 
+              new('M', "Others (Misc.)")
+        };
+
+        private static readonly Classification[] typeOfEquity =
+        {
+            new('S', "Common/Ordinary Shares"),
+            new('P', "Preferred/Preference Shares"),
+            new('C', "Common/Ordinary Convertible Shares"),
+            new('F', "Preferred/Preference Convertible Shares"),
+            new('L', "Limited Partnership Units\r\n"),
+            new('K', "Collective Investment Vehicles\r\n"),
+            new('M', "Others (Misc.)")
+        };
+
+
         private static readonly Classification[] undefiend =
         {
             new('X', "Not Appl./Undefined")
@@ -1041,13 +1131,20 @@ namespace ClassificationFinancialInstruments
 
         private static readonly ClassificationGroup[] groupInstruments =
         {
-            new('C', "Currencies", undefiend, undefiend, undefiend, undefiend),
-            new('T', "Commodities", undefiend, undefiend, undefiend, undefiend),
-            new('R', "Interest rates", undefiend, undefiend, undefiend, undefiend),
-            new('I', "Indices", undefiend, undefiend, undefiend, undefiend),
-            new('B', "Baskets", undefiend, undefiend, undefiend, undefiend),
-            new('D', "Stock dividends", undefiend, undefiend, undefiend, undefiend),
-            new('M', "Others (Misc.)", undefiend, undefiend, undefiend, undefiend)
+            new('C', "Currencies", 
+                typeInstrumentCurrencies, undefiend, undefiend, undefiend),
+            new('T', "Commodities", 
+                underlyingAssetInstrumentCommodities, undefiend, undefiend, undefiend),
+            new('R', "Interest rates", 
+                typeOfInterestRates, frequencyOfCalculation, undefiend, undefiend),
+            new('I', "Indices", 
+                assetClasses, weightingTypes, indexReturnType, undefiend),
+            new('B', "Baskets",
+                compositions, undefiend, undefiend, undefiend),
+            new('D', "Stock dividends", 
+                typeOfEquity, undefiend, undefiend, undefiend),
+            new('M', "Others (Misc.)", 
+                undefiend, undefiend, undefiend, undefiend)
         };
 
         private static readonly ClassificationGroup[] groupMisc =
