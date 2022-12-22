@@ -446,7 +446,7 @@ namespace ClassificationFinancialInstruments
             new('M', "Others (Misc.)")
         };
 
-        private static readonly Classification[] deliveryFuture =
+        private static readonly Classification[] physicalCashNonDeliverable =
         {
             new('P', "Physical"),
             new('C', "Cash"),
@@ -478,7 +478,7 @@ namespace ClassificationFinancialInstruments
             new('C', "Cross-Currency")
         };
 
-        private static readonly Classification[] deliverySwapRate =
+        private static readonly Classification[] cashPhysical =
         {
             new('C', "Cash"),
             new('P', "Physical")
@@ -702,6 +702,75 @@ namespace ClassificationFinancialInstruments
             new('M', "Others (Misc.)")
         };
 
+        private static readonly Classification[] underlyingAssetForwardEquity =
+{
+            new('S', "Single stock"),
+            new('I', "Index"),
+            new('B', "Basket"),
+            new('O', "Options"), 
+            new('F', "Futures"), 
+        };
+
+        private static readonly Classification[] payoutTriggerForward =
+{
+            new('C', "Contract for difference"),
+            new('S', "Spread-bet"),
+            new('F', "Forward price of underlying instrument"),
+        };
+
+        private static readonly Classification[] underlyingAssetForwardFx =
+{
+            new('S', "Spot"),
+            new('I', "Forward"),
+            new('B', "Options"),            
+            new('F', "Futures"),
+        };
+
+        private static readonly Classification[] underlyingAssetForwardCredit =
+{
+            new('A', "Single name"),
+            new('I', "Index"),
+            new('B', "Basket"),
+            new('C', "CDS on a single name"),
+            new('D', "CDS on an index"),
+            new('G', "CDS on a basket"),
+            new('O', "Options"),
+        };
+
+        private static readonly Classification[] payoutTriggerForwardCredit =
+{
+            new('S', "Spread-bet"),
+            new('F', "Forward price of underlying instrument"),
+        };
+
+        private static readonly Classification[] underlyingAssetForwardRates =
+{            
+            new('I', "Interest rate index"),            
+            new('O', "Options"),
+                        new('M', "Others (Misc.)")
+        };
+
+        private static readonly Classification[] payoutTriggerForwardCommodities =
+{
+            new('C', "Contract for difference"),
+            new('F', "Forward price of underlying instrument"),
+        };
+
+        private static readonly Classification[] underlyingAssetForwardCommodities =
+{
+            new('A', "Agriculture"),            
+            new('B', "Basket"),
+            new('G', "Freight"),
+            new('I', "Index"),
+            new('J', "Energy"),
+            new('K', "Metals"),
+            new('N', "Environmental"),
+            new('P', "Polypropylene Products"),
+            new('S', "Fertilizer"),
+            new('T', "Paper"),
+            new('M', "Others (Misc.)") 
+        };
+
         private static readonly Classification[] undefiend =
         {
             new('X', "Not Appl./Undefined")
@@ -814,15 +883,15 @@ namespace ClassificationFinancialInstruments
         private static readonly ClassificationGroup[] groupFutures =
         {
             new('F', "Financial futures",
-                underlyingAssetFutureFinancialProducts, deliveryFuture, standardNonStandard, undefiend),
+                underlyingAssetFutureFinancialProducts, physicalCashNonDeliverable, standardNonStandard, undefiend),
             new('C', "Commodities futures",
-                underlyingAssetFutureCommoditiesProducts, deliveryFuture, standardNonStandard, undefiend)
+                underlyingAssetFutureCommoditiesProducts, physicalCashNonDeliverable, standardNonStandard, undefiend)
         };
 
         private static readonly ClassificationGroup[] groupSwaps =
         {
             new('R', "Rates",
-                underlyingAssetSwapRate, notional, currency, deliverySwapRate),
+                underlyingAssetSwapRate, notional, currency, cashPhysical),
             new('T', "Commodities",
                 underlyingAssetSwapCommodities, payoutTrigger, undefiend, deliverSwap),
             new('E', "Equity",
@@ -832,7 +901,7 @@ namespace ClassificationFinancialInstruments
             new('F', "Foreign exchange (FX)",
                 underlyingAssetFx, undefiend, undefiend, deliveryFx),
             new('M', "Others (Misc.)",
-                underlyingAssetMisc, undefiend, undefiend, deliverySwapRate)
+                underlyingAssetMisc, undefiend, undefiend, cashPhysical)
         };
 
         private static readonly ClassificationGroup[] groupNonListed =
@@ -861,11 +930,16 @@ namespace ClassificationFinancialInstruments
 
         private static readonly ClassificationGroup[] groupForwards =
         {
-            new('E', "Equity", undefiend, undefiend, undefiend, undefiend),
-            new('F', "Foreign exchange (FX)", undefiend, undefiend, undefiend, undefiend),
-            new('C', "Credit", undefiend, undefiend, undefiend, undefiend),
-            new('R', "Rates", undefiend, undefiend, undefiend, undefiend),
-            new('T', "Commodities", undefiend, undefiend, undefiend, undefiend)
+            new('E', "Equity", 
+                underlyingAssetForwardEquity, undefiend, payoutTriggerForward, cashPhysical),
+            new('F', "Foreign exchange (FX)", 
+                underlyingAssetForwardFx, undefiend, payoutTriggerForward, physicalCashNonDeliverable),
+            new('C', "Credit",
+                underlyingAssetForwardCredit, undefiend, payoutTriggerForwardCredit, physicalCashNonDeliverable),
+            new('R', "Rates",
+                underlyingAssetForwardRates, undefiend, payoutTriggerForwardCredit, physicalCashNonDeliverable),
+            new('T', "Commodities",
+                underlyingAssetForwardCommodities, undefiend, payoutTriggerForwardCommodities, physicalCashNonDeliverable)
         };
 
         private static readonly ClassificationGroup[] groupStrategies =
