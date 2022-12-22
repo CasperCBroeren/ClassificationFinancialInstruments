@@ -771,6 +771,45 @@ namespace ClassificationFinancialInstruments
             new('M', "Others (Misc.)") 
         };
 
+
+        private static readonly Classification[] underlyingAssetFinancingRepurchaseAgreements =
+{
+            new('G', "General collateral"),
+            new('S', "Specific security collateral"),
+            new('C', "Cash collateral"), 
+        };
+
+        private static readonly Classification[] underlyingAssetFinancingSecuritiesLending =
+{
+            new('C', "Cash collateral"),
+            new('G', "Government bonds"),
+            new('P', "Corporate bonds"),
+            new('T', "Convertible bonds"),
+            new('E', "Equity"),
+            new('L', "Letter of credit"),
+            new('D', "Certificate of deposit"),
+            new('W', "Warrants"),
+            new('K', "Money Market Instruments"),
+            new('M', "Others (Misc.)")
+        };
+
+        private static readonly Classification[] terminationSecuritiesLending =
+{
+            new('N', "Overnight"),
+            new('O', "Open"),
+            new('T', "Term")
+
+        };
+
+        private static readonly Classification[] deliveryFinancing =
+{
+            new('D', "Delivery versus payment"),
+            new('F', "Free of payment"),
+            new('H', "Hold-in-custody"),
+            new('T', "Tri-party"),
+
+        };
+
         private static readonly Classification[] undefiend =
         {
             new('X', "Not Appl./Undefined")
@@ -956,8 +995,10 @@ namespace ClassificationFinancialInstruments
         private static readonly ClassificationGroup[] groupFinancing =
         {
             new('R', "Loan Lease", undefiend, undefiend, undefiend, undefiend),
-            new('R', "Repurchase agreements", undefiend, undefiend, undefiend, undefiend),
-            new('S', "Securities Lending", undefiend, undefiend, undefiend, undefiend)
+            new('R', "Repurchase agreements", 
+                underlyingAssetFinancingRepurchaseAgreements, undefiend, undefiend, undefiend),
+            new('S', "Securities Lending", 
+                underlyingAssetFinancingSecuritiesLending, terminationSecuritiesLending, undefiend, deliveryFinancing)
         };
 
         private static readonly ClassificationGroup[] groupInstruments =
