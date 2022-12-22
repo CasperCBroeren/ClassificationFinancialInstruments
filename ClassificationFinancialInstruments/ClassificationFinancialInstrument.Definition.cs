@@ -453,6 +453,139 @@ namespace ClassificationFinancialInstruments
             new('N', "Non-Deliverable")
         };
 
+        private static readonly Classification[] underlyingAssetSwapRate =
+        {
+            new('A', "Basis swap"),
+            new('C', "Fixed-Floating"),
+            new('D', "Fixed-Fixed"),
+            new('G', "Inflation rate index"),
+            new('H', "Overnight Index Swap (OIS)"),
+            new('Z', "Zero coupon"),
+            new('M', "Others (Misc.)")
+        };
+
+        private static readonly Classification[] notional =
+        {
+            new('C', "Constant"),
+            new('D', "Accreting"),
+            new('I', "Amortizing"),
+            new('Y', "Custom")
+        };
+
+        private static readonly Classification[] currency =
+        {
+            new('S', "Single-Currency"),
+            new('C', "Cross-Currency")
+        };
+
+        private static readonly Classification[] deliverySwapRate =
+        {
+            new('C', "Cash"),
+            new('P', "Physical")
+        };
+
+        private static readonly Classification[] underlyingAssetSwapCommodities =
+        {
+            new('J', "Energy"),
+            new('K', "Metals"),
+            new('A', "Agriculture"),
+            new('N', "Environmental"),
+            new('G', "Freight"),
+            new('P', "Polypropylene Products"),
+            new('S', "Fertilizer"),
+            new('T', "Paper"),
+            new('I', "Index"),
+            new('Q', "Multi-Commodity"),
+            new('M', "Others (Misc.)")
+        };
+
+        private static readonly Classification[] payoutTrigger =
+        {
+            new('P', "Price"),
+            new('D', "Dividend"),
+            new('V', "Variance"),
+            new('L', "Volatility"),
+            new('T', "Total return"),
+            new('C', "Contract for difference"),
+            new('M', "Others (Misc.)")
+        };
+
+        private static readonly Classification[] deliverSwap =
+        {
+            new('P', "Physical"),
+            new('C', "Cash"),
+            new('E', "Elect at settlement")
+        };
+
+        private static readonly Classification[] underlyingAssetSwapEquity =
+        {
+            new('S', "Single stock"),
+            new('I', "Index"),
+            new('B', "Basket"),
+            new('M', "Others (Misc.)")
+        };
+
+        private static readonly Classification[] payoutTriggerSwapEquity =
+        {
+            new('P', "Price"),
+            new('D', "Dividend"),
+            new('V', "Variance"),
+            new('L', "Volatility"),
+            new('T', "Total return"),
+            new('C', "Contract for difference"),
+            new('M', "Others (Misc.)")
+        };
+
+        private static readonly Classification[] underlyingAssetSwapCredit =
+        {
+            new('U', "Single name"),
+            new('V', "Index tranche"),
+            new('I', "Index"),
+            new('B', "Basket"),
+            new('M', "Others (Misc.)")
+        };
+
+        private static readonly Classification[] payoutSwapCredit =
+        {
+            new('C', "Credit default"),
+            new('T', "Total return"),
+            new('M', "Others (Misc.)")
+        };
+
+        private static readonly Classification[] underlyingIssuerType =
+        {
+            new('C', "Corporate"),
+            new('S', "Sovereign"),
+            new('L', "Local")
+        };
+
+        private static readonly Classification[] deliverSwapCredit =
+        {
+            new('C', "Cash"),
+            new('P', "Physical"),
+            new('A', "Auction")
+        };
+
+        private static readonly Classification[] underlyingAssetFx =
+        {
+            new('A', "Spot-Forward swap"),
+            new('C', "Forward-forward swap"),
+            new('M', "Others (Misc.)")
+        };
+
+        private static readonly Classification[] deliveryFx =
+        {
+            new('P', "Physical"),
+            new('N', "Non-Deliverable")
+        };
+
+        private static readonly Classification[] underlyingAssetMisc =
+        {
+            new('P', "Commercial property (or proerty derivative)"),
+            new('M', "Others (Misc.)")
+        };
+
+
         private static readonly Classification[] undefiend =
         {
             new('X', "Not Appl./Undefined")
@@ -460,105 +593,130 @@ namespace ClassificationFinancialInstruments
 
         private static readonly ClassificationGroup[] groupEquities =
         {
-            new('S', "Shares i.e. Common / Ordinary", votingRights, ownership, paymentStatus, form),
-            new('P', "Preferred shares", votingRights, redemption, income, form),
-            new('C', "Convertible shares", votingRights, redemption, income, form),
-            new('F', "Preferred convertible shares", votingRights, ownership, paymentStatus, form),
-            new('L', "Limited partnership units", votingRights, ownership, paymentStatus, form),
-            new('D', "Depository receipts on equities", instrumentDependency, redemptionUnderlying,
-                income, form),
-            new('Y', "Structured instruments (participation)", type, distribution, repayment,
-                underlyingAsset),
-            new('P', "Preference shares", votingRights, redemption, income, form),
-            new('V', "Preference convertibles shares", votingRights, redemption, income, form),
-            new('U', "Units (from Unit trusts, Mutual funds, OPCVM or OICVM)", closedOpenEnd,
-                distributionPolicy, assets, form),
-            new('M', "Others (Misc.)", undefiend, undefiend, undefiend, form)
+            new('S', "Shares i.e. Common / Ordinary",
+                votingRights, ownership, paymentStatus, form),
+            new('P', "Preferred shares",
+                votingRights, redemption, income, form),
+            new('C', "Convertible shares",
+                votingRights, redemption, income, form),
+            new('F', "Preferred convertible shares",
+                votingRights, ownership, paymentStatus, form),
+            new('L', "Limited partnership units",
+                votingRights, ownership, paymentStatus, form),
+            new('D', "Depository receipts on equities",
+                instrumentDependency, redemptionUnderlying, income, form),
+            new('Y', "Structured instruments (participation)",
+                type, distribution, repayment, underlyingAsset),
+            new('P', "Preference shares",
+                votingRights, redemption, income, form),
+            new('V', "Preference convertibles shares",
+                votingRights, redemption, income, form),
+            new('U', "Units (from Unit trusts, Mutual funds, OPCVM or OICVM)",
+                closedOpenEnd, distributionPolicy, assets, form),
+            new('M', "Others (Misc.)",
+                undefiend, undefiend, undefiend, form)
         };
 
         private static readonly ClassificationGroup[] groupDebt =
         {
-            new('B', "Bonds", typeOfInterest, guarantee, reimbursement, form),
-            new('C', "Convertible Bonds", typeOfInterest, guarantee, reimbursement, form),
-            new('W', "Bonds with warrants attached", typeOfInterest, guarantee, reimbursement,
-                form),
-            new('T', "Medium-term notes", typeOfInterest, guarantee, reimbursement, form),
+            new('B', "Bonds",
+                typeOfInterest, guarantee, reimbursement, form),
+            new('C', "Convertible Bonds",
+                typeOfInterest, guarantee, reimbursement, form),
+            new('W', "Bonds with warrants attached",
+                typeOfInterest, guarantee, reimbursement, form),
+            new('T', "Medium-term notes",
+                typeOfInterest, guarantee, reimbursement, form),
             new('S', "Structured products (with capital protection)",
                 typeStructeredProductsProtected, distributionStructuredProducts, repaymentProtected,
                 underlyingAssetStructuredProducts),
             new('E', "Structured products (without capital protection)",
                 typeStructeredProductsUnprotected, distributionStructuredProducts, repaymentUnprotected,
                 underlyingAssetStructuredProducts),
-            new('G', "Mortgage-backed securities (MBS)", typeOfInterestGan, guarantee,
-                reimbursement, form),
-            new('A', "Asset backed securities (ABS)", typeOfInterestGan, guarantee, reimbursement,
-                form),
-            new('N', "Municipal bonds", typeOfInterestGan, guarantee, reimbursement, form),
-            new('D', "Depository receipts on debt instruments", instrumentDependency,
-                typeOfInterestCashPayment, guarantee, reimbursement),
-            new('Y', "Money market instruments", typeOfInterestMoneyMarket, guarantee, undefiend,
-                form),
-            new('M', "Others (Misc.)", typeOthersDebt, undefiend, undefiend, form)
+            new('G', "Mortgage-backed securities (MBS)",
+                typeOfInterestGan, guarantee, reimbursement, form),
+            new('A', "Asset backed securities (ABS)",
+                typeOfInterestGan, guarantee, reimbursement, form),
+            new('N', "Municipal bonds",
+                typeOfInterestGan, guarantee, reimbursement, form),
+            new('D', "Depository receipts on debt instruments",
+                instrumentDependency, typeOfInterestCashPayment, guarantee, reimbursement),
+            new('Y', "Money market instruments",
+                typeOfInterestMoneyMarket, guarantee, undefiend, form),
+            new('M', "Others (Misc.)",
+                typeOthersDebt, undefiend, undefiend, form)
         };
 
         private static readonly ClassificationGroup[] groupInvestment =
         {
-            new('I', "Standard (vanilla)investment funds/mutual funds", closedOpenEnd,
-                distributionPolicy, collectiveAssets, securityTypeInvestorRestrictions),
-            new('H', "Hedge funds", investmentStrategy, undefiend, undefiend, undefiend),
-            new('B', "Real estate investment trusts (REITs)", closedOpenEnd, distributionPolicy,
-                undefiend, securityTypeInvestorRestrictions),
-            new('E', "Exchange-traded funds (ETFs)", closedOpenEnd, distributionPolicy,
-                collectiveAssets, securityType),
-            new('S', "Pension funds", closedOpenEnd, pensionFundStrategy, pensionFundType,
-                securityType),
-            new('F', "Funds of funds", closedOpenEnd, distributionPolicy, securityTypeFundOfFund,
-                securityTypeInvestorRestrictions),
-            new('P', "Private equity funds", closedOpenEnd, distributionPolicy, collectiveAssets,
-                securityTypeInvestorRestrictions),
-            new('M', "Others (Misc.)", undefiend, undefiend, undefiend,
-                securityTypeInvestorRestrictions)
+            new('I', "Standard (vanilla)investment funds/mutual funds",
+                closedOpenEnd, distributionPolicy, collectiveAssets, securityTypeInvestorRestrictions),
+            new('H', "Hedge funds",
+                investmentStrategy, undefiend, undefiend, undefiend),
+            new('B', "Real estate investment trusts (REITs)",
+                closedOpenEnd, distributionPolicy, undefiend, securityTypeInvestorRestrictions),
+            new('E', "Exchange-traded funds (ETFs)",
+                closedOpenEnd, distributionPolicy, collectiveAssets, securityType),
+            new('S', "Pension funds",
+                closedOpenEnd, pensionFundStrategy, pensionFundType, securityType),
+            new('F', "Funds of funds",
+                closedOpenEnd, distributionPolicy, securityTypeFundOfFund, securityTypeInvestorRestrictions),
+            new('P', "Private equity funds",
+                closedOpenEnd, distributionPolicy, collectiveAssets, securityTypeInvestorRestrictions),
+            new('M', "Others (Misc.)",
+                undefiend, undefiend, undefiend, securityTypeInvestorRestrictions)
         };
 
         private static readonly ClassificationGroup[] groupEntitlement =
         {
-            new('A', "Allotments (Bonus Rights)", undefiend, undefiend, undefiend, form),
-            new('S', "Subscription Rights", entitlementAsset, undefiend, undefiend, form),
-            new('P', "Purchase Rights", entitlementAsset, undefiend, undefiend, form),
-            new('W', "Warrants", underlyingAssetStructuredProducts, warrantType, callPut,
-                exerciseOptionStyle),
+            new('A', "Allotments (Bonus Rights)",
+                undefiend, undefiend, undefiend, form),
+            new('S', "Subscription Rights",
+                entitlementAsset, undefiend, undefiend, form),
+            new('P', "Purchase Rights",
+                entitlementAsset, undefiend, undefiend, form),
+            new('W', "Warrants",
+                underlyingAssetStructuredProducts, warrantType, callPut, exerciseOptionStyle),
             new('F', "Mini-future certificates/constant leverage certificates",
                 underlyingAssetStructuredProducts, barrierDependencyType, longShort, exerciseOptionStyle),
-            new('D', "Depository receipts on entitlements", depositoryInstrumentDependency,
-                undefiend, undefiend, form),
-            new('M', "Others (Misc.)", undefiend, undefiend, undefiend, undefiend)
+            new('D', "Depository receipts on entitlements",
+                depositoryInstrumentDependency, undefiend, undefiend, form),
+            new('M', "Others (Misc.)",
+                undefiend, undefiend, undefiend, undefiend)
         };
 
         private static readonly ClassificationGroup[] groupOptions =
         {
-            new('C', "Call Options", exerciseOptionStyleExOthers, underlyingAssetOptionProducts, deliveryOption,
-                standardNonStandard),
-            new('P', "Put Options", exerciseOptionStyleExOthers, underlyingAssetOptionProducts, deliveryOption,
-                standardNonStandard),
-            new('M', "Others (Misc.)", undefiend, undefiend, undefiend, undefiend)
+            new('C', "Call Options",
+                exerciseOptionStyleExOthers, underlyingAssetOptionProducts, deliveryOption, standardNonStandard),
+            new('P', "Put Options",
+                exerciseOptionStyleExOthers, underlyingAssetOptionProducts, deliveryOption, standardNonStandard),
+            new('M', "Others (Misc.)",
+                undefiend, undefiend, undefiend, undefiend)
         };
 
         private static readonly ClassificationGroup[] groupFutures =
         {
-            new('F', "Financial futures", underlyingAssetFutureFinancialProducts, deliveryFuture, standardNonStandard,
-                undefiend),
-            new('C', "Commodities futures", underlyingAssetFutureCommoditiesProducts, deliveryFuture,
-                standardNonStandard, undefiend)
+            new('F', "Financial futures",
+                underlyingAssetFutureFinancialProducts, deliveryFuture, standardNonStandard, undefiend),
+            new('C', "Commodities futures",
+                underlyingAssetFutureCommoditiesProducts, deliveryFuture, standardNonStandard, undefiend)
         };
 
         private static readonly ClassificationGroup[] groupSwaps =
         {
-            new('R', "Rates", undefiend, undefiend, undefiend, undefiend),
-            new('T', "Commodities", undefiend, undefiend, undefiend, undefiend),
-            new('E', "Equity", undefiend, undefiend, undefiend, undefiend),
-            new('C', "Credit", undefiend, undefiend, undefiend, undefiend),
-            new('F', "Foreign exchange (FX)", undefiend, undefiend, undefiend, undefiend),
-            new('M', "Others (Misc.)", undefiend, undefiend, undefiend, undefiend)
+            new('R', "Rates",
+                underlyingAssetSwapRate, notional, currency, deliverySwapRate),
+            new('T', "Commodities",
+                underlyingAssetSwapCommodities, payoutTrigger, undefiend, deliverSwap),
+            new('E', "Equity",
+                underlyingAssetSwapEquity, payoutTriggerSwapEquity, undefiend, deliverSwap),
+            new('C', "Credit",
+                underlyingAssetSwapCredit, payoutSwapCredit, underlyingIssuerType, deliverSwapCredit),
+            new('F', "Foreign exchange (FX)",
+                underlyingAssetFx, undefiend, undefiend, deliveryFx),
+            new('M', "Others (Misc.)",
+                underlyingAssetMisc, undefiend, undefiend, deliverySwapRate)
         };
 
         private static readonly ClassificationGroup[] groupNonListed =
