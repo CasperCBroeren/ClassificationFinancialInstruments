@@ -771,12 +771,42 @@ namespace ClassificationFinancialInstruments
             new('M', "Others (Misc.)") 
         };
 
+        private static readonly Classification[] underlyingAssetFinancingLoanLease =
+{
+            new('A', "Agriculture"),
+            new('B', "Basket"), 
+            new('J', "Energy"),
+            new('K', "Metals"),
+            new('N', "Environmental"),
+            new('P', "Polypropylene Products"),
+            new('S', "Fertilizer"),
+            new('T', "Paper"),
+            new('M', "Others (Misc.)")
+        };
+
 
         private static readonly Classification[] underlyingAssetFinancingRepurchaseAgreements =
 {
             new('G', "General collateral"),
             new('S', "Specific security collateral"),
             new('C', "Cash collateral"), 
+        };
+
+        private static readonly Classification[] terminationRepurchaseAgreements =
+{
+            new('F', "Flexible"),
+            new('N', "Overnight"),
+            new('O', "Open"),
+            new('T', "Term")
+
+        };
+
+        private static readonly Classification[] deliveryFinancingRepurcharseAgreements =
+{
+            new('D', "Delivery versus payment"),
+            new('H', "Hold-in-custody"),
+            new('T', "Tri-party"),
+
         };
 
         private static readonly Classification[] underlyingAssetFinancingSecuritiesLending =
@@ -983,20 +1013,28 @@ namespace ClassificationFinancialInstruments
 
         private static readonly ClassificationGroup[] groupStrategies =
         {
-            new('R', "Rates", undefiend, undefiend, undefiend, undefiend),
-            new('T', "Commodities", undefiend, undefiend, undefiend, undefiend),
-            new('E', "Equity", undefiend, undefiend, undefiend, undefiend),
-            new('C', "Credit", undefiend, undefiend, undefiend, undefiend),
-            new('F', "Foreign exchange (FX)", undefiend, undefiend, undefiend, undefiend),
-            new('Y', "Mixed assets", undefiend, undefiend, undefiend, undefiend),
-            new('M', "Others (Misc.)", undefiend, undefiend, undefiend, undefiend)
+            new('R', "Rates", 
+                undefiend, undefiend, undefiend, undefiend),
+            new('T', "Commodities", 
+                undefiend, undefiend, undefiend, undefiend),
+            new('E', "Equity", 
+                undefiend, undefiend, undefiend, undefiend),
+            new('C', "Credit", 
+                undefiend, undefiend, undefiend, undefiend),
+            new('F', "Foreign exchange (FX)", 
+                undefiend, undefiend, undefiend, undefiend),
+            new('Y', "Mixed assets", 
+                undefiend, undefiend, undefiend, undefiend),
+            new('M', "Others (Misc.)", 
+                undefiend, undefiend, undefiend, undefiend)
         };
 
         private static readonly ClassificationGroup[] groupFinancing =
         {
-            new('R', "Loan Lease", undefiend, undefiend, undefiend, undefiend),
+            new('L', "Loan Lease",
+                underlyingAssetFinancingLoanLease, undefiend, undefiend, physicalCashNonDeliverable),
             new('R', "Repurchase agreements", 
-                underlyingAssetFinancingRepurchaseAgreements, undefiend, undefiend, undefiend),
+                underlyingAssetFinancingRepurchaseAgreements, terminationRepurchaseAgreements, undefiend, deliveryFinancingRepurcharseAgreements),
             new('S', "Securities Lending", 
                 underlyingAssetFinancingSecuritiesLending, terminationSecuritiesLending, undefiend, deliveryFinancing)
         };
