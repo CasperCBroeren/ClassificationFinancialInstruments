@@ -586,7 +586,7 @@ namespace ClassificationFinancialInstruments
         };
 
         private static readonly Classification[] underlyingAssetNonListedRates =
-       {
+        {
             new('A', "Basic swap"),
             new('C', "Fixed-Floating"),
             new('D', "Fixed-Fixed"),
@@ -599,7 +599,7 @@ namespace ClassificationFinancialInstruments
         };
 
         private static readonly Classification[] optionStyleNonListed =
-       {
+        {
             new('A', "European Call"),
             new('B', "American Call"),
             new('C', "Bermudan Call"),
@@ -608,11 +608,11 @@ namespace ClassificationFinancialInstruments
             new('F', "Bermudan Put"),
             new('G', "European Chooser"),
             new('H', "American Chooser"),
-            new('I', "Bermudan Chooser"),
+            new('I', "Bermudan Chooser")
         };
 
         private static readonly Classification[] valuationNonListed =
-  {
+        {
             new('V', "Vanilla"),
             new('A', "Asian"),
             new('D', "Digital (Binary)"),
@@ -621,18 +621,17 @@ namespace ClassificationFinancialInstruments
             new('L', "Lookback"),
             new('P', "Other path dependent"),
             new('M', "Others (Misc.)")
-
         };
 
         private static readonly Classification[] deliveryNonListed =
-              {
+        {
             new('C', "Cash"),
             new('P', "Physical"),
             new('E', "Elect at Exercise")
         };
 
         private static readonly Classification[] underlyingAssetNonListedCommodities =
-{
+        {
             new('J', "Energy"),
             new('K', "Metals"),
             new('A', "Agriculture"),
@@ -649,8 +648,9 @@ namespace ClassificationFinancialInstruments
             new('W', "Swaps"),
             new('M', "Others (Misc.)")
         };
-        private static readonly Classification[] underlyingAssetNonListedEquity=
-{
+
+        private static readonly Classification[] underlyingAssetNonListedEquity =
+        {
             new('S', "Single stock"),
             new('I', "Index"),
             new('B', "Basket"),
@@ -661,104 +661,103 @@ namespace ClassificationFinancialInstruments
         };
 
         private static readonly Classification[] underlyingAssetNonListedCredit =
-{
+        {
             new('U', "CDS on a single name"),
             new('V', "CDS on an index tranche"),
             new('I', "CDS on an index"),
-            new('W', "Swaps"), 
+            new('W', "Swaps"),
             new('M', "Others (Misc.)")
         };
 
         private static readonly Classification[] underlyingAssetNonListedFx =
-{
+        {
             new('R', "Forwards"),
             new('F', "Futures"),
             new('T', "Spot-Forward swap"),
-            new('V', "Volatility"), 
+            new('V', "Volatility"),
             new('M', "Others (Misc.)")
         };
 
         private static readonly Classification[] underlyingAssetNonListedMisc =
-{
-            new('P', "Commercial property (or proerty derivative)"), 
+        {
+            new('P', "Commercial property (or proerty derivative)"),
             new('M', "Others (Misc.)")
         };
 
         private static readonly Classification[] deliverySpotFx =
-{
+        {
             new('P', "Physical")
         };
 
         private static readonly Classification[] underlyingAssetSpotCommodities =
-{
-
+        {
             new('A', "Agriculture"),
             new('J', "Energy"),
             new('K', "Metals"),
             new('N', "Environmental"),
             new('P', "Polypropylene Products"),
             new('S', "Fertilizer"),
-            new('T', "Paper"), 
+            new('T', "Paper"),
             new('M', "Others (Misc.)")
         };
 
         private static readonly Classification[] underlyingAssetForwardEquity =
-{
+        {
             new('S', "Single stock"),
             new('I', "Index"),
             new('B', "Basket"),
-            new('O', "Options"), 
-            new('F', "Futures"), 
+            new('O', "Options"),
+            new('F', "Futures")
         };
 
         private static readonly Classification[] payoutTriggerForward =
-{
+        {
             new('C', "Contract for difference"),
             new('S', "Spread-bet"),
-            new('F', "Forward price of underlying instrument"),
+            new('F', "Forward price of underlying instrument")
         };
 
         private static readonly Classification[] underlyingAssetForwardFx =
-{
+        {
             new('S', "Spot"),
             new('I', "Forward"),
-            new('B', "Options"),            
-            new('F', "Futures"),
+            new('B', "Options"),
+            new('F', "Futures")
         };
 
         private static readonly Classification[] underlyingAssetForwardCredit =
-{
+        {
             new('A', "Single name"),
             new('I', "Index"),
             new('B', "Basket"),
             new('C', "CDS on a single name"),
             new('D', "CDS on an index"),
             new('G', "CDS on a basket"),
-            new('O', "Options"),
+            new('O', "Options")
         };
 
         private static readonly Classification[] payoutTriggerForwardCredit =
-{
+        {
             new('S', "Spread-bet"),
-            new('F', "Forward price of underlying instrument"),
+            new('F', "Forward price of underlying instrument")
         };
 
         private static readonly Classification[] underlyingAssetForwardRates =
-{            
-            new('I', "Interest rate index"),            
+        {
+            new('I', "Interest rate index"),
             new('O', "Options"),
-                        new('M', "Others (Misc.)")
+            new('M', "Others (Misc.)")
         };
 
         private static readonly Classification[] payoutTriggerForwardCommodities =
-{
+        {
             new('C', "Contract for difference"),
-            new('F', "Forward price of underlying instrument"),
+            new('F', "Forward price of underlying instrument")
         };
 
         private static readonly Classification[] underlyingAssetForwardCommodities =
-{
-            new('A', "Agriculture"),            
+        {
+            new('A', "Agriculture"),
             new('B', "Basket"),
             new('G', "Freight"),
             new('I', "Index"),
@@ -768,13 +767,13 @@ namespace ClassificationFinancialInstruments
             new('P', "Polypropylene Products"),
             new('S', "Fertilizer"),
             new('T', "Paper"),
-            new('M', "Others (Misc.)") 
+            new('M', "Others (Misc.)")
         };
 
         private static readonly Classification[] underlyingAssetFinancingLoanLease =
-{
+        {
             new('A', "Agriculture"),
-            new('B', "Basket"), 
+            new('B', "Basket"),
             new('J', "Energy"),
             new('K', "Metals"),
             new('N', "Environmental"),
@@ -786,31 +785,29 @@ namespace ClassificationFinancialInstruments
 
 
         private static readonly Classification[] underlyingAssetFinancingRepurchaseAgreements =
-{
+        {
             new('G', "General collateral"),
             new('S', "Specific security collateral"),
-            new('C', "Cash collateral"), 
+            new('C', "Cash collateral")
         };
 
         private static readonly Classification[] terminationRepurchaseAgreements =
-{
+        {
             new('F', "Flexible"),
             new('N', "Overnight"),
             new('O', "Open"),
             new('T', "Term")
-
         };
 
         private static readonly Classification[] deliveryFinancingRepurcharseAgreements =
-{
+        {
             new('D', "Delivery versus payment"),
             new('H', "Hold-in-custody"),
-            new('T', "Tri-party"),
-
+            new('T', "Tri-party")
         };
 
         private static readonly Classification[] underlyingAssetFinancingSecuritiesLending =
-{
+        {
             new('C', "Cash collateral"),
             new('G', "Government bonds"),
             new('P', "Corporate bonds"),
@@ -824,24 +821,22 @@ namespace ClassificationFinancialInstruments
         };
 
         private static readonly Classification[] terminationSecuritiesLending =
-{
+        {
             new('N', "Overnight"),
             new('O', "Open"),
             new('T', "Term")
-
         };
 
         private static readonly Classification[] deliveryFinancing =
-{
+        {
             new('D', "Delivery versus payment"),
             new('F', "Free of payment"),
             new('H', "Hold-in-custody"),
-            new('T', "Tri-party"),
-
+            new('T', "Tri-party")
         };
 
         private static readonly Classification[] typeInstrumentCurrencies =
-{
+        {
             new('N', "National Currency"),
             new('L', "Legacy Currency"),
             new('C', "Bullion Coins"),
@@ -849,7 +844,7 @@ namespace ClassificationFinancialInstruments
         };
 
         private static readonly Classification[] underlyingAssetInstrumentCommodities =
-{
+        {
             new('E', "Extraction Resources"),
             new('A', "Agriculture"),
             new('I', "Industrial Products"),
@@ -857,11 +852,11 @@ namespace ClassificationFinancialInstruments
             new('N', "Environmental"),
             new('P', "Polypropylene Products"),
             new('H', "Generated Resources"),
-              new('M', "Others (Misc.)")
+            new('M', "Others (Misc.)")
         };
 
         private static readonly Classification[] typeOfInterestRates =
-{
+        {
             new('N', "Nominal"),
             new('V', "Variable"),
             new('F', "Fixed"),
@@ -870,52 +865,53 @@ namespace ClassificationFinancialInstruments
         };
 
         private static readonly Classification[] frequencyOfCalculation =
-{
+        {
             new('D', "Daily"),
             new('W', "Weekly"),
             new('N', "Monthly"),
             new('Q', "Quarterly"),
             new('S', "Semi-Annually"),
-            new('A', "Annually"), 
-              new('M', "Others (Misc.)")
+            new('A', "Annually"),
+            new('M', "Others (Misc.)")
         };
 
         private static readonly Classification[] assetClasses =
-{
+        {
             new('E', "Equities"),
             new('D', "Debt"),
             new('F', "Collective Investment Vehicles"),
             new('R', "Real Estate"),
             new('T', "Commodities"),
-            new('C', "Currencies"), 
+            new('C', "Currencies"),
             new('M', "Others (Misc.)")
         };
 
         private static readonly Classification[] weightingTypes =
-{
-            new ('P', "Price Weighted"),
+        {
+            new('P', "Price Weighted"),
             new('C', "Capitalization Weighted"),
             new('E', "Equal Weighted"),
             new('F', "Modified Market Capitalization Weighted"),
-              new('M', "Others (Misc.)")
+            new('M', "Others (Misc.)")
         };
 
         private static readonly Classification[] indexReturnType =
-{
-            new ('P', "Price Return"),
+        {
+            new('P', "Price Return"),
             new('N', "Net Total Return"),
             new('G', "Gross Total Return"),
-              new('M', "Others (Misc.)")
+            new('M', "Others (Misc.)")
         };
+
         private static readonly Classification[] compositions =
-{
+        {
             new('E', "Equities"),
             new('D', "Debt"),
             new('F', "Collective Investment Vehicles"),
             new('I', "Indices"),
             new('T', "Commodities"),
-            new('C', "Currencies"), 
-              new('M', "Others (Misc.)")
+            new('C', "Currencies"),
+            new('M', "Others (Misc.)")
         };
 
         private static readonly Classification[] typeOfEquity =
@@ -930,7 +926,7 @@ namespace ClassificationFinancialInstruments
         };
 
         private static readonly Classification[] components =
-{
+        {
             new('S', "Combination of Shares"),
             new('B', "Combination of Bonds"),
             new('H', "Share and Bond"),
@@ -941,7 +937,7 @@ namespace ClassificationFinancialInstruments
         };
 
         private static readonly Classification[] furtherGrouping =
-{
+        {
             new('R', "Real Estate Deeds"),
             new('I', "Insurance Policies"),
             new('E', "Escrow Receipts"),
@@ -1092,7 +1088,7 @@ namespace ClassificationFinancialInstruments
                 underlyingAssetNonListedRates, optionStyleNonListed, valuationNonListed, deliveryNonListed),
             new('T', "Commodities",
                 underlyingAssetNonListedCommodities, optionStyleNonListed, valuationNonListed, deliveryNonListed),
-            new('E', "Equity", 
+            new('E', "Equity",
                 underlyingAssetNonListedEquity, optionStyleNonListed, valuationNonListed, deliveryNonListed),
             new('C', "Credit",
                 underlyingAssetNonListedCredit, optionStyleNonListed, valuationNonListed, deliveryNonListed),
@@ -1104,41 +1100,42 @@ namespace ClassificationFinancialInstruments
 
         private static readonly ClassificationGroup[] groupSpot =
         {
-            new('F', "Foreign exchange (FX)", 
+            new('F', "Foreign exchange (FX)",
                 undefiend, undefiend, undefiend, deliverySpotFx),
-            new('T', "Commodities", 
+            new('T', "Commodities",
                 underlyingAssetSpotCommodities, undefiend, undefiend, undefiend)
         };
 
         private static readonly ClassificationGroup[] groupForwards =
         {
-            new('E', "Equity", 
+            new('E', "Equity",
                 underlyingAssetForwardEquity, undefiend, payoutTriggerForward, cashPhysical),
-            new('F', "Foreign exchange (FX)", 
+            new('F', "Foreign exchange (FX)",
                 underlyingAssetForwardFx, undefiend, payoutTriggerForward, physicalCashNonDeliverable),
             new('C', "Credit",
                 underlyingAssetForwardCredit, undefiend, payoutTriggerForwardCredit, physicalCashNonDeliverable),
             new('R', "Rates",
                 underlyingAssetForwardRates, undefiend, payoutTriggerForwardCredit, physicalCashNonDeliverable),
             new('T', "Commodities",
-                underlyingAssetForwardCommodities, undefiend, payoutTriggerForwardCommodities, physicalCashNonDeliverable)
+                underlyingAssetForwardCommodities, undefiend, payoutTriggerForwardCommodities,
+                physicalCashNonDeliverable)
         };
 
         private static readonly ClassificationGroup[] groupStrategies =
         {
-            new('R', "Rates", 
+            new('R', "Rates",
                 undefiend, undefiend, undefiend, undefiend),
-            new('T', "Commodities", 
+            new('T', "Commodities",
                 undefiend, undefiend, undefiend, undefiend),
-            new('E', "Equity", 
+            new('E', "Equity",
                 undefiend, undefiend, undefiend, undefiend),
-            new('C', "Credit", 
+            new('C', "Credit",
                 undefiend, undefiend, undefiend, undefiend),
-            new('F', "Foreign exchange (FX)", 
+            new('F', "Foreign exchange (FX)",
                 undefiend, undefiend, undefiend, undefiend),
-            new('Y', "Mixed assets", 
+            new('Y', "Mixed assets",
                 undefiend, undefiend, undefiend, undefiend),
-            new('M', "Others (Misc.)", 
+            new('M', "Others (Misc.)",
                 undefiend, undefiend, undefiend, undefiend)
         };
 
@@ -1146,35 +1143,36 @@ namespace ClassificationFinancialInstruments
         {
             new('L', "Loan Lease",
                 underlyingAssetFinancingLoanLease, undefiend, undefiend, physicalCashNonDeliverable),
-            new('R', "Repurchase agreements", 
-                underlyingAssetFinancingRepurchaseAgreements, terminationRepurchaseAgreements, undefiend, deliveryFinancingRepurcharseAgreements),
-            new('S', "Securities Lending", 
+            new('R', "Repurchase agreements",
+                underlyingAssetFinancingRepurchaseAgreements, terminationRepurchaseAgreements, undefiend,
+                deliveryFinancingRepurcharseAgreements),
+            new('S', "Securities Lending",
                 underlyingAssetFinancingSecuritiesLending, terminationSecuritiesLending, undefiend, deliveryFinancing)
         };
 
         private static readonly ClassificationGroup[] groupInstruments =
         {
-            new('C', "Currencies", 
+            new('C', "Currencies",
                 typeInstrumentCurrencies, undefiend, undefiend, undefiend),
-            new('T', "Commodities", 
+            new('T', "Commodities",
                 underlyingAssetInstrumentCommodities, undefiend, undefiend, undefiend),
-            new('R', "Interest rates", 
+            new('R', "Interest rates",
                 typeOfInterestRates, frequencyOfCalculation, undefiend, undefiend),
-            new('I', "Indices", 
+            new('I', "Indices",
                 assetClasses, weightingTypes, indexReturnType, undefiend),
             new('B', "Baskets",
                 compositions, undefiend, undefiend, undefiend),
-            new('D', "Stock dividends", 
+            new('D', "Stock dividends",
                 typeOfEquity, undefiend, undefiend, undefiend),
-            new('M', "Others (Misc.)", 
+            new('M', "Others (Misc.)",
                 undefiend, undefiend, undefiend, undefiend)
         };
 
         private static readonly ClassificationGroup[] groupMisc =
         {
-            new('C', "Combined instruments", 
+            new('C', "Combined instruments",
                 components, ownership, undefiend, form),
-            new('M', "Others (Misc.)", 
+            new('M', "Others (Misc.)",
                 furtherGrouping, undefiend, undefiend, undefiend)
         };
 
