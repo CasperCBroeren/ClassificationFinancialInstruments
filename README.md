@@ -3,6 +3,10 @@ Cfi is a library for parsing and validating a Classification Financial Instrumen
 
 Also this is hobby project for me to practice functional style coding in C#
 
+## Nuget
+https://www.nuget.org/packages/ClassificationFinancialInstruments
+
 ## Sources
  - https://en.wikipedia.org/wiki/ISO_10962
  - https://www.iotafinance.com/en/Attributes-CFI-Codes-Group-SR.html
+
